@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bottom"
+        android:orderInCategory="100"
+        android:title="书架"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/search_bar"
+        android:title="search"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView" >
+    </item>
+    <item
+        android:id="@+id/order"
+        android:title="排序"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/bookName"
+                android:title="书名顺序"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/author"
+                android:title="作者顺序"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+</menu>
