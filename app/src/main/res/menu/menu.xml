@@ -14,6 +14,12 @@
         app:actionViewClass="android.widget.SearchView" >
     </item>
     <item
+        android:id="@+id/add"
+        android:orderInCategory="100"
+        android:title="添加"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/order"
         android:title="排序"
         app:showAsAction="always">

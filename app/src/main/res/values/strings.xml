@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Test4</string>
+    <string name="string_confirmation">删除确认</string>
 </resources>
