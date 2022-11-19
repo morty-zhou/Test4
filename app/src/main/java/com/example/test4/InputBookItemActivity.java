@@ -8,17 +8,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class InputBookItemActivity extends AppCompatActivity {
 
     public static final int RESULT_CODE_SUCCESS = 114514;
+
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_book_item);
 
+        position = this.getIntent().getIntExtra("position",0);
+        String title = this.getIntent().getStringExtra("title");
+        Double price = this.getIntent().getDoubleExtra("price", 0);
+
         EditText editTextTitle = findViewById(R.id.editTextBookItemTitle);
         EditText editTextPrice = findViewById(R.id.editTextBookItemPrice);
+
+        if(null!= title){
+            editTextTitle.setText(title);
+            editTextPrice.setText(price.toString());
+        }
+
 
         Button buttonok = findViewById(R.id.inputButton_ok);
         buttonok.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +43,7 @@ public class InputBookItemActivity extends AppCompatActivity {
                 bundle.putString("title",editTextTitle.getText().toString());
                 double price = Double.parseDouble(editTextPrice.getText().toString());
                 bundle.putDouble("price",price);
+                bundle.putInt("position", position);
 
                 intent.putExtras(bundle);
                 setResult(RESULT_CODE_SUCCESS, intent);

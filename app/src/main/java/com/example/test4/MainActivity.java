@@ -21,31 +21,53 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.test4.data.ShopItem;
+import com.example.test4.data.BookItem;
 
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<ShopItem> shopItems;
+    private ArrayList<BookItem> bookItems;
     private MainRecycleViewAdapter mainRecycleViewAdapter;
 
     private ActivityResultLauncher<Intent> addDateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             result -> {
-        if(null!=result){
-            Intent intent = result.getData();
-            if(result.getResultCode()==InputBookItemActivity.RESULT_CODE_SUCCESS){
-                Bundle bundle = intent.getExtras();
-                String title = bundle.getString("title");
-                Double price = bundle.getDouble("price");
-                shopItems.add(0, new ShopItem(title, price, R.drawable.ic_drawer));
-                mainRecycleViewAdapter.notifyItemRemoved(0);
-            }
+                if(null!=result){
+                    Intent intent = result.getData();
+                    if(result.getResultCode()==InputBookItemActivity.RESULT_CODE_SUCCESS){
+                        Bundle bundle = intent.getExtras();
+                        String title = bundle.getString("title");
+                        Double price = bundle.getDouble("price");
+//                      int position = bundle.getInt("position");
+                        bookItems.add(0, new BookItem(title, price, R.drawable.ic_drawer));
+                        mainRecycleViewAdapter.notifyItemRemoved(0);
+                    }
 
-            Toast.makeText(this, "input activity return", Toast.LENGTH_SHORT).show();
-        }
+                    Toast.makeText(this, "input activity return", Toast.LENGTH_SHORT).show();
+                }
             });
+
+    private ActivityResultLauncher<Intent> updateDateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if(null!=result){
+                    Intent intent = result.getData();
+                    if(result.getResultCode()==InputBookItemActivity.RESULT_CODE_SUCCESS){
+                        Bundle bundle = intent.getExtras();
+                        String title = bundle.getString("title");
+                        Double price = bundle.getDouble("price");
+                        int position = bundle.getInt("position");
+                        bookItems.get(position).setTitle(title);
+                        bookItems.get(position).setPrice(price);
+//                        shopItems.add(position, new BookItem(title, price, R.drawable.ic_drawer));
+                        mainRecycleViewAdapter.notifyItemChanged(position);
+                    }
+
+                    Toast.makeText(this, "input activity return", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewMain.setLayoutManager(linearLayoutManager);
 
 
-        shopItems = new ArrayList<>();
+        bookItems = new ArrayList<>();
         for(int i = 0; i<10;i++){
-            shopItems.add(new ShopItem("item"+i, Math.random()*10, i%2==1?R.drawable.ic_drawer:R.drawable.net));
+            bookItems.add(new BookItem("item"+i, Math.random()*10, i%2==1?R.drawable.ic_drawer:R.drawable.net));
         }
 
-        mainRecycleViewAdapter = new MainRecycleViewAdapter(shopItems);
+        mainRecycleViewAdapter = new MainRecycleViewAdapter(bookItems);
         recyclerViewMain.setAdapter(mainRecycleViewAdapter);
 
 //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -90,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case 1:
                 Intent intent = new Intent(this, InputBookItemActivity.class);
+                intent.putExtra("position",item.getOrder());
                 addDateLauncher.launch(intent);
 //                startActivity(intent);
                 Toast.makeText(this,"item 添加"+item.getOrder()+"已点击!",Toast.LENGTH_LONG).show();
@@ -106,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                         }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                shopItems.remove(item.getOrder());
+                                bookItems.remove(item.getOrder());
                                 mainRecycleViewAdapter.notifyItemRemoved(item.getOrder());
                             }
                         }).create();
@@ -114,6 +137,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"item 删除"+item.getOrder()+"已点击!",Toast.LENGTH_LONG).show();
                 break;
             case 3:
+                Intent intentUpdate = new Intent(this, InputBookItemActivity.class);
+                intentUpdate.putExtra("position", item.getOrder());
+                intentUpdate.putExtra("title", bookItems.get(item.getOrder()).getTitle());
+                intentUpdate.putExtra("title", bookItems.get(item.getOrder()).getPrice());
+                updateDateLauncher.launch(intentUpdate);
+
                 Toast.makeText(this,"item 更改"+item.getOrder()+"已点击!",Toast.LENGTH_LONG).show();
                 break;
         }
@@ -122,8 +151,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     public class MainRecycleViewAdapter extends RecyclerView.Adapter<MainRecycleViewAdapter.ViewHolder> {
-        private ArrayList<ShopItem> localDataSet;
+        private ArrayList<BookItem> localDataSet;
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
             private final TextView textViewTitle;
@@ -162,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        public MainRecycleViewAdapter(ArrayList<ShopItem> dataSet) {
+        public MainRecycleViewAdapter(ArrayList<BookItem> dataSet) {
             localDataSet = dataSet;
         }  //在Java中两个对象之间的赋值类似于C++中的引用
 

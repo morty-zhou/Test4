@@ -1,13 +1,13 @@
 package com.example.test4.data;
 
-public class ShopItem {
-    public ShopItem(String title, double price,int resourceId) {
+public class BookItem {
+    public BookItem(String title, double price, int resourceId) {
         this.resourceId = resourceId;
         this.title = title;
         this.price = price;
     }
 
-    public ShopItem() {
+    public BookItem() {
     }
 
     public double getPrice() {
