@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_shelf" android:title="个人书架"></item>
+    <item android:id="@+id/menu_label" android:title="添加书签"></item>
+</menu>

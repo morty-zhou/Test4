@@ -23,13 +23,19 @@ public class InputBookItemActivity extends AppCompatActivity {
 
         position = this.getIntent().getIntExtra("position",0);
         String title = this.getIntent().getStringExtra("title");
+        String author = this.getIntent().getStringExtra("author");
+        String shop = this.getIntent().getStringExtra("shop");
         Double price = this.getIntent().getDoubleExtra("price", 0);
 
         EditText editTextTitle = findViewById(R.id.editTextBookItemTitle);
+        EditText editTextAuthor = findViewById(R.id.editTextBookItemAuthor);
+        EditText editTextShop = findViewById(R.id.editTextBookItemShop);
         EditText editTextPrice = findViewById(R.id.editTextBookItemPrice);
 
         if(null!= title){
             editTextTitle.setText(title);
+            editTextAuthor.setText(author);
+            editTextAuthor.setText(shop);
             editTextPrice.setText(price.toString());
         }
 
@@ -41,6 +47,8 @@ public class InputBookItemActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putString("title",editTextTitle.getText().toString());
+                bundle.putString("author",editTextAuthor.getText().toString());
+                bundle.putString("shop",editTextShop.getText().toString());
                 double price = Double.parseDouble(editTextPrice.getText().toString());
                 bundle.putDouble("price",price);
                 bundle.putInt("position", position);

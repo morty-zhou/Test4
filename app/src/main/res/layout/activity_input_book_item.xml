@@ -7,6 +7,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -20,9 +21,10 @@
                 android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="Title："
                 tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="53dp" />
+                tools:layout_editor_absoluteY="53dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/editTextBookItemTitle"
@@ -41,12 +43,38 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author："
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="53dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/editTextBookItemAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="BookAuthor"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="42dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price"
+                android:text="Price："
                 tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="53dp" />
+                tools:layout_editor_absoluteY="53dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/editTextBookItemPrice"
@@ -58,6 +86,32 @@
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="42dp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出版社："
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="53dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/editTextBookItemShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="共和国真理部出版社"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="42dp" />
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/inputButton_ok"
