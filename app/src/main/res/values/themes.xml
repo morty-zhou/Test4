@@ -14,5 +14,7 @@
         <!-- Customize your theme here. -->
 
         <item name="tabBackground">@android:color/holo_blue_bright</item>
+
+
     </style>
 </resources>

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--    <item-->
-<!--        android:id="@+id/bottom"-->
-<!--        android:orderInCategory="100"-->
-<!--        android:title="书架"-->
-<!--        app:showAsAction="always" />-->
-    
+
     <item
         android:id="@+id/search_bar"
         android:title="search"
@@ -21,17 +16,23 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/order"
-        android:title="排序"
-        app:showAsAction="always">
+        android:id="@+id/shelf"
+        android:orderInCategory="100"
+        android:title="书签/书架"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/other"
+        android:title="其他"
+        app:showAsAction="never">
         <menu>
             <item
-                android:id="@+id/bookName"
-                android:title="书名顺序"
+                android:id="@+id/setting"
+                android:title="设置"
                 app:showAsAction="never"/>
             <item
-                android:id="@+id/author"
-                android:title="作者顺序"
+                android:id="@+id/about"
+                android:title="关于"
                 app:showAsAction="never"/>
         </menu>
     </item>

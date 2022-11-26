@@ -19,7 +19,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="vertical">
+            android:background="@drawable/eidttext_background"
+            android:orientation="vertical"
+            android:backgroundTint="#FFFFFF">
 <!--            <TextView-->
 <!--                android:id="@+id/textview_item_name"-->
 <!--                android:layout_width="wrap_content"-->
@@ -28,7 +30,7 @@
 <!--                android:textSize="30dp"/>-->
             <TextView
                 android:id="@+id/textview_item_caption"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,7 +40,7 @@
 
             <TextView
                 android:id="@+id/textview_item_author"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +49,7 @@
 
             <TextView
                 android:id="@+id/textview_item_price"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,12 +58,18 @@
 
             <TextView
                 android:id="@+id/textview_item_shop"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:lines="2"
+                android:textColor="@color/black">
             </TextView>
 
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#303F9F"/>
 </FrameLayout>

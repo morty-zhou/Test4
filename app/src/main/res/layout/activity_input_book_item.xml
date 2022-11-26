@@ -10,17 +10,50 @@
         android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/eidttext_background"
+        android:backgroundTint="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/textViewImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="imgURL："
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="53dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/editTextBookItemImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/eidttext_background"
+                android:layout_marginLeft="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=" 图片链接"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="42dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="Title："
                 tools:layout_editor_absoluteX="33dp"
                 tools:layout_editor_absoluteY="53dp"
@@ -30,9 +63,11 @@
                 android:id="@+id/editTextBookItemTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/eidttext_background"
+                android:layout_marginLeft="30dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="BookTitle"
+                android:text=" BookTitle"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="42dp" />
         </LinearLayout>
@@ -40,7 +75,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/textViewAuthor"
@@ -55,9 +91,11 @@
                 android:id="@+id/editTextBookItemAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/eidttext_background"
+                android:layout_marginLeft="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="BookAuthor"
+                android:text=" BookAuthor"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="42dp" />
         </LinearLayout>
@@ -65,7 +103,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/textViewPrice"
@@ -80,9 +119,11 @@
                 android:id="@+id/editTextBookItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/eidttext_background"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="0.0"
+                android:layout_marginLeft="27dp"
+                android:text=" 0.0"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="42dp" />
         </LinearLayout>
@@ -90,7 +131,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/textViewShop"
@@ -105,9 +147,11 @@
                 android:id="@+id/editTextBookItemShop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/eidttext_background"
+                android:layout_marginLeft="17dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="共和国真理部出版社"
+                android:text=" 共和国真理部出版社"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="42dp" />
         </LinearLayout>
@@ -117,7 +161,11 @@
             android:id="@+id/inputButton_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK">
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/eidttext_background"
+            android:textSize="20dp"
+            android:text="确认">
 
         </Button>
 

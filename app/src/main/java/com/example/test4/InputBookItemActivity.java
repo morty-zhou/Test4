@@ -35,8 +35,8 @@ public class InputBookItemActivity extends AppCompatActivity {
         if(null!= title){
             editTextTitle.setText(title);
             editTextAuthor.setText(author);
-            editTextAuthor.setText(shop);
             editTextPrice.setText(price.toString());
+            editTextShop.setText(shop);
         }
 
 
@@ -48,9 +48,9 @@ public class InputBookItemActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("title",editTextTitle.getText().toString());
                 bundle.putString("author",editTextAuthor.getText().toString());
-                bundle.putString("shop",editTextShop.getText().toString());
                 double price = Double.parseDouble(editTextPrice.getText().toString());
                 bundle.putDouble("price",price);
+                bundle.putString("shop",editTextShop.getText().toString());
                 bundle.putInt("position", position);
 
                 intent.putExtras(bundle);

@@ -1,5 +1,9 @@
 package com.example.test4.data;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.Serializable;
 
 public class BookItem implements Serializable {
@@ -31,13 +35,19 @@ public class BookItem implements Serializable {
     public String getShop() {
         return shop;
     }
+    public String getLabel() {
+        return label;
+    }
 
     public void setTitle(String title) {
         this.title = title;
     }
     public void setAuthor(String author){this.author = author;}
     public void setShop(String shop) {
-        this.title = shop;
+        this.shop = shop;
+    }
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public int getResourceId() {
@@ -53,4 +63,12 @@ public class BookItem implements Serializable {
     private double price;
     private String author;
     private String shop;
+
+    private String label;
+
+    public String findBook(String title) {
+        String result=null;
+        return result;
+    }
+
 }

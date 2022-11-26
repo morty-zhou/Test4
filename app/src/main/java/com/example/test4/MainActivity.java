@@ -14,9 +14,11 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView menu2;
 
     int icon[] = new int[]{R.drawable.book0,R.drawable.book1,R.drawable.book2,R.drawable.book3,R.drawable.book4
             ,R.drawable.book5,R.drawable.book6,R.drawable.book7,R.drawable.book8,R.drawable.book9};
@@ -84,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
             bookItems.add(0, new BookItem("firstBook", "author", 10.0, "共和国真理部出版社", icon[i]));
         }
 
-
         mainRecycleViewAdapter = new MainRecycleViewAdapter(bookItems);
         recyclerViewMain.setAdapter(mainRecycleViewAdapter);
+
+        menu2 = findViewById(R.id.menu2);
+        registerForContextMenu(menu2);
 
         //根据ID获取到图片按钮对象
         ImageButton btnImage = findViewById(R.id.imb_add);
@@ -127,11 +132,18 @@ public class MainActivity extends AppCompatActivity {
         btnImage.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-
+                openContextMenu(menu2);
                 return true;
             }
         });
 
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.menu2, menu);
+//        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Override
@@ -270,6 +282,16 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("position",item.getOrder());
                 addDateLauncher.launch(intent);
                 break;
+            case R.id.shelf:
+                startActivity(new Intent(MainActivity.this,FindActivity.class));
+                break;
+            case R.id.setting:
+                startActivity(new Intent(MainActivity.this,SettingActivity.class));
+                break;
+            case R.id.about:
+                startActivity(new Intent(MainActivity.this,AboutActivity.class));
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }

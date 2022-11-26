@@ -19,6 +19,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".FindActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
