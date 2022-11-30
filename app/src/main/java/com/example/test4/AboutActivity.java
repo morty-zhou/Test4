@@ -5,11 +5,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutActivity extends AppCompatActivity {
+
+    private RatingBar ratingBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +39,10 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent_1);
             }
         });
+
+        ratingBar = (RatingBar) findViewById(R.id.ratingbar);
+        String rating = String.valueOf(ratingBar.getRating());
+        Toast.makeText(AboutActivity.this, "您的评分是"+rating+"星", Toast.LENGTH_SHORT).show();
+
     }
 }
